@@ -33,7 +33,7 @@ int depiler( T_Pile *P, T_Elt *pelt) { //renvoie 0 si pile vide, sinon 1
 }
 
 T_Elt sommet(const  T_Pile *P) {
-    return P->Elts[P->nbElts];
+    return P->Elts[P->nbElts-1];
 }
 
 int hauteur(const  T_Pile *P) {
@@ -41,19 +41,17 @@ int hauteur(const  T_Pile *P) {
 }
 
 void afficherPile(  T_Pile *P) {
-    int i=0, j;
     T_Elt elt;
-    T_Elt tab[MAX];
+    T_Pile pileTemp;
 
-    //On depile, on affiche et on met dans notre tableau pour rempiler plus tard
+    initPile(&pileTemp);
+
     while (depiler(P, &elt)){
-        printf("Element %d : %d\n", i, elt);
-        tab[i] = elt;
-        i++;
+        printf("Element : %d\n", elt);
+        empiler(&pileTemp, elt);
     }
-
-    for(j=i-1 ; j >= 0 ; j--) empiler(P, tab[j]);
     
+    while(depiler(&pileTemp, &elt)) empiler(P, elt);
 }
 
 
