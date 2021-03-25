@@ -2,7 +2,7 @@ c=gcc
 op=-Wall -Wextra
 
 all : es.o pile.o file.o tp9.c 	
-	$(c) $(op)  es.o pile.o tp9.c -o tp9
+	$(c) $(op)  es.o pile.o file.o tp9.c -o tp9.exe
 pile.o : pile.c pile.h
 	$(c) $(op) -c pile.c	
 file.o : file.c file.h
@@ -10,3 +10,6 @@ file.o : file.c file.h
 es.o : es.c es.h
 	$(c) $(op) -c es.c	
 
+clean:
+	rm -rf *.exe
+	rm -rf *.o
