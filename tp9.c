@@ -5,7 +5,7 @@
 
 void testFile(T_File *file);
 int menuFile();
-void testPile(T_Pile * P);
+void testPile(T_Pile *P);
 
 int menu()
 {
@@ -25,7 +25,7 @@ int menu()
 int main()
 {
 	T_File mafile;
-	// T_Pile mapile;
+	T_Pile mapile;
 	int chx;
 	// int taille;
 	//char chaine[20];
@@ -38,21 +38,23 @@ int main()
 		case 1:
 			testFile(&mafile); //TP9 partie 1 : à ecrire
 			break;
-	case 2 : //testez toutes vos fonctions par un jeu de test de votre choix
-		// testFile(&mafile); //TP9 partie 1 : à ecrire 
-		testPile(&mapile);
-	break; 
-	case 3 : 
-		//scanf("%s",chaine); //une chaine de longueur <=MAX
-		//permut(&mapile,chaine); //TP9 partie 2: ecrire permut
-		break;
-	case 4 : 
-		//scanf("%d",&taille);//taille echiquier <=MAX
-		//echiquier(&mapile,taille); //TP9 partie 3: ecrire echiquier
-		break;
+		case 2: //testez toutes vos fonctions par un jeu de test de votre choix
+			// testFile(&mafile); //TP9 partie 1 : à ecrire
+			testPile(&mapile);
+			break;
+		case 3:
+			//scanf("%s",chaine); //une chaine de longueur <=MAX
+			//permut(&mapile,chaine); //TP9 partie 2: ecrire permut
+			break;
+		case 4:
+			//scanf("%d",&taille);//taille echiquier <=MAX
+			//echiquier(&mapile,taille); //TP9 partie 3: ecrire echiquier
+			break;
 
-	printf("\nau plaisir de vous revoir ...\n");
-	return 0;
+			printf("\nau plaisir de vous revoir ...\n");
+			return 0;
+		}
+	} while (chx != 0);
 }
 
 int menuFile()
@@ -146,11 +148,13 @@ void testFile(T_File *file)
 	} while (chx != 0);
 }
 
-void testPile(T_Pile * P) {
-	int choix=0;
+void testPile(T_Pile *P)
+{
+	int choix = 0;
 	T_Elt elt;
-	
-	do{
+
+	do
+	{
 		printf("\n\t ----- Fonction Pile (Teo) -----\n");
 		printf("1- initPile\n");
 		printf("2- pilePleine\n");
@@ -164,63 +168,72 @@ void testPile(T_Pile * P) {
 		printf("\nSelection : ");
 		scanf("%d", &choix);
 
-		switch(choix){
+		switch (choix)
+		{
 
-			//initPile
-			case 1 :
-				initPile(P);
-				printf("initPile : succes\n");
+		//initPile
+		case 1:
+			initPile(P);
+			printf("initPile : succes\n");
 			break;
 
-			//pilePleine
-			case 2 :
-				if(pilepleine(P)) printf("La pile est pleine\n");
-				else printf("La pile n'est pas pleine\n");
+		//pilePleine
+		case 2:
+			if (pilepleine(P))
+				printf("La pile est pleine\n");
+			else
+				printf("La pile n'est pas pleine\n");
 			break;
 
-			//pileVide
-			case 3 :
-				if(pilevide(P)) printf("La pile est vide\n");
-				else printf("La pile n'est pas vide\n");
+		//pileVide
+		case 3:
+			if (pilevide(P))
+				printf("La pile est vide\n");
+			else
+				printf("La pile n'est pas vide\n");
 			break;
 
-			//empiler
-			case 4 :
-				printf("Element a empiler : ");
-				scanf("%d", &elt);
-				if (empiler(P, elt)) printf("Element empile avec succes\n");
-				else printf("Impossible d'empiler\n");
+		//empiler
+		case 4:
+			printf("Element a empiler : ");
+			scanf("%d", &elt);
+			if (empiler(P, elt))
+				printf("Element empile avec succes\n");
+			else
+				printf("Impossible d'empiler\n");
 			break;
 
-			//depiler
-			case 5 :
-				if(depiler(P, &elt)) printf("Element depiler : %d\n", elt);
-				else printf("Impossible de depiler\n");
+		//depiler
+		case 5:
+			if (depiler(P, &elt))
+				printf("Element depiler : %d\n", elt);
+			else
+				printf("Impossible de depiler\n");
 			break;
 
-			//sommet
-			case 6 :
-				printf("Valeur sommet : %d\n", sommet(P));
+		//sommet
+		case 6:
+			printf("Valeur sommet : %d\n", sommet(P));
 			break;
 
-			//hauteur
-			case 7 :
-				printf("Hauteur pile : %d\n", hauteur(P));
+		//hauteur
+		case 7:
+			printf("Hauteur pile : %d\n", hauteur(P));
 			break;
 
-			//afficherPile
-			case 8 :
-				printf("Affichage pile : \n");
-				afficherPile(P);
-			break;
-			
-			case 9 :
-				printf("Retour au menu principale\n");
+		//afficherPile
+		case 8:
+			printf("Affichage pile : \n");
+			afficherPile(P);
 			break;
 
-			default:
-				printf("Mauvaise entree\n");
+		case 9:
+			printf("Retour au menu principale\n");
+			break;
+
+		default:
+			printf("Mauvaise entree\n");
 			break;
 		}
-	} while(choix != 9);
+	} while (choix != 9);
 }
