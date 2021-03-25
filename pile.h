@@ -1,5 +1,5 @@
 #include "es.h" 	 
-#define MAX 10 //pile STATIQUE (limitée à MAX éléments)
+#define MAX 3 //pile STATIQUE (limitée à MAX éléments)
 
 
 typedef struct  

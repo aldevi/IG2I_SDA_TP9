@@ -10,6 +10,5 @@ file.o : file.c file.h
 es.o : es.c es.h
 	$(c) $(op) -c es.c	
 
-clean:
-	rm -rf *.exe
-	rm -rf *.o
+clean :
+	rm -rf *.o *.exe
