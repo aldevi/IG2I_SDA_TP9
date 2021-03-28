@@ -2,6 +2,8 @@
 
 #include "pile.h"
 #include "file.h"
+#include "permut.h"
+#include "echiquier.h"
 
 void testFile(T_File *file);
 int menuFile();
@@ -26,9 +28,10 @@ int main()
 {
 	T_File mafile;
 	T_Pile mapile;
+	T_Pile test;
 	int chx;
-	// int taille;
-	//char chaine[20];
+	int taille;
+	char chaine[20];
 
 	do
 	{
@@ -43,16 +46,26 @@ int main()
 			testPile(&mapile);
 			break;
 		case 3:
-			//scanf("%s",chaine); //une chaine de longueur <=MAX
-			//permut(&mapile,chaine); //TP9 partie 2: ecrire permut
+			printf("Entrez une chaine : ");
+			scanf("%s",chaine); //une chaine de longueur <=MAX
+			permut(&mapile,chaine); //TP9 partie 2: ecrire permut
 			break;
 		case 4:
-			//scanf("%d",&taille);//taille echiquier <=MAX
-			//echiquier(&mapile,taille); //TP9 partie 3: ecrire echiquier
+			printf("Taille echiquier : ");
+			scanf("%d",&taille);//taille echiquier <=MAX
+			echiquier(&mapile,taille); //TP9 partie 3: ecrire echiquier
 			break;
 
 			printf("\nau plaisir de vous revoir ...\n");
 			return 0;
+		case 5:
+			initPile(&test);
+			empiler(&test, 2);
+			empiler(&test, 4);
+			empiler(&test, 3);
+			empiler(&test, 3);
+			printf("Noeud valide : %d\n", noeudValide(&test));
+		break;
 		}
 	} while (chx != 0);
 }

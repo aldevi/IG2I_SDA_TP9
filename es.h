@@ -3,8 +3,6 @@
 
 
 typedef int T_Elt; //TAD
-
-
 // ou
 //typedef char T_chaine[50];
 //typedef T_chaine T_Elt; //TAD

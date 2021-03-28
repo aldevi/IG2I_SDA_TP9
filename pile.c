@@ -47,9 +47,10 @@ void afficherPile(  T_Pile *P) {
     initPile(&pileTemp);
 
     while (depiler(P, &elt)){
-        printf("Element : %d\n", elt);
+        printf("%d ", elt);
         empiler(&pileTemp, elt);
     }
+    printf("\n");
     
     while(depiler(&pileTemp, &elt)) empiler(P, elt);
 }

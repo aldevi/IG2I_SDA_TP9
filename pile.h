@@ -1,3 +1,6 @@
+#ifndef _PILE_H_
+#define _PILE_H_
+
 #include "es.h"
 #define MAX 10 //pile STATIQUE (limitée à MAX éléments)
 
@@ -15,3 +18,5 @@ int depiler(T_Pile *, T_Elt *); //pop retourne le T_Elt via pelt et renvoie 0 si
 T_Elt sommet(const T_Pile *);   // valeur au sommet de la pile
 int hauteur(const T_Pile *);
 void afficherPile(T_Pile *); //vous devez depiler la pile pour afficher chacune de ses valeurs (puis surtout la rempiler)
+
+#endif
